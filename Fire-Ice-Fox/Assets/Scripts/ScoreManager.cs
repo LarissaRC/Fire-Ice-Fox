@@ -17,7 +17,7 @@ public class ScoreManager : MonoBehaviour
     public static void Hit()
     {
         comboScore += 1;
-        Instance.hitSFX.Play();
+        //Instance.hitSFX.Play();
     }
     public static void Miss()
     {
@@ -26,6 +26,6 @@ public class ScoreManager : MonoBehaviour
     }
     private void Update()
     {
-        scoreText.text = comboScore.ToString();
+        //scoreText.text = comboScore.ToString();
     }
 }
