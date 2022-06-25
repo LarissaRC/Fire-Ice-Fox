@@ -12,6 +12,17 @@ public class GameController : MonoBehaviour
     public bool downRightKeyPressed = false;
     public bool rightKeyPressed = false;
 
+    public int keyDirection = 0;
+    // 0 = Up
+    // 1 = Up Right
+    // 2 = Right
+    // 3 = Down Right
+    // 4 = Down
+
+    public bool moveRocks = false;
+    public int floorRockTotal;
+    public int floorRocksCount = 0;
+
     public static GameController instance;
 
     void Start()

@@ -80,20 +80,27 @@ public class Lane : MonoBehaviour
         {
             case KeyCode.A:
                 GameController.instance.rightKeyPressed = true;
+                GameController.instance.keyDirection = 2;
             break;
             case KeyCode.S:
                 GameController.instance.upRightKeyPressed = true;
+                GameController.instance.keyDirection = 1;
             break;
             case KeyCode.D:
                 GameController.instance.upKeyPressed = true;
+                GameController.instance.keyDirection = 0;
             break;
             case KeyCode.F:
                 GameController.instance.downRightKeyPressed = true;
+                GameController.instance.keyDirection = 3;
             break;
             case KeyCode.G:
                 GameController.instance.downKeyPressed = true;
+                GameController.instance.keyDirection = 4;
             break;
         }
+
+        GameController.instance.moveRocks = true;
     }
 
     private void Hit()
