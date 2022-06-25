@@ -15,11 +15,8 @@ public class Lane : MonoBehaviour
     int spawnIndex = 0;
     int inputIndex = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject fox;
+
     public void SetTimeStamps(Melanchall.DryWetMidi.Interaction.Note[] array)
     {
         foreach (var note in array)
@@ -56,6 +53,8 @@ public class Lane : MonoBehaviour
                 if (Math.Abs(audioTime - timeStamp) < marginOfError)
                 {
                     Hit();
+                    FoxJump(input);
+
                     print($"Hit on {inputIndex} note");
                     Destroy(notes[inputIndex].gameObject);
                     inputIndex++;
@@ -74,10 +73,34 @@ public class Lane : MonoBehaviour
         }       
     
     }
+
+    private void FoxJump(KeyCode key)
+    {
+        switch(key)
+        {
+            case KeyCode.A:
+                GameController.instance.rightKeyPressed = true;
+            break;
+            case KeyCode.S:
+                GameController.instance.upRightKeyPressed = true;
+            break;
+            case KeyCode.D:
+                GameController.instance.upKeyPressed = true;
+            break;
+            case KeyCode.F:
+                GameController.instance.downRightKeyPressed = true;
+            break;
+            case KeyCode.G:
+                GameController.instance.downKeyPressed = true;
+            break;
+        }
+    }
+
     private void Hit()
     {
         ScoreManager.Hit();
     }
+
     private void Miss()
     {
         ScoreManager.Miss();

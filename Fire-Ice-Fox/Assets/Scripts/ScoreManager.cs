@@ -9,6 +9,7 @@ public class ScoreManager : MonoBehaviour
     public AudioSource missSFX;
     public TMPro.TextMeshPro scoreText;
     static int comboScore;
+
     void Start()
     {
         Instance = this;

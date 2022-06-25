@@ -12,8 +12,32 @@ public class Fox : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void Jump()
+    void Update()
     {
-        anim.SetTrigger("Jump");
+        if(GameController.instance.rightKeyPressed == true)
+        {
+            anim.SetTrigger("Jump");
+            GameController.instance.rightKeyPressed = false;
+        }
+        if(GameController.instance.upRightKeyPressed == true)
+        {
+            anim.SetTrigger("Jump");
+            GameController.instance.upRightKeyPressed = false;
+        }
+        if(GameController.instance.upKeyPressed == true)
+        {
+            anim.SetTrigger("Jump");
+            GameController.instance.upKeyPressed = false;
+        }
+        if(GameController.instance.downRightKeyPressed == true)
+        {
+            anim.SetTrigger("Jump");
+            GameController.instance.downRightKeyPressed = false;
+        }
+        if(GameController.instance.downKeyPressed == true)
+        {
+            anim.SetTrigger("Jump");
+            GameController.instance.downKeyPressed = false;
+        }
     }
 }
