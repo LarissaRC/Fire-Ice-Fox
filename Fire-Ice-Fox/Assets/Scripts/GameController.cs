@@ -29,6 +29,9 @@ public class GameController : MonoBehaviour
     public GameObject winScreen;
     public GameObject lostScreen;
 
+    public GameObject fox;
+    public GameObject deadFox;
+
     public static GameController instance;
 
     void Start()
@@ -66,6 +69,8 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            deadFox.SetActive(true);
+            fox.SetActive(false);
             Invoke("CloseRightScreen", 0.0f);
             Invoke("LoadEndGameScreen", 2.0f);
         }
