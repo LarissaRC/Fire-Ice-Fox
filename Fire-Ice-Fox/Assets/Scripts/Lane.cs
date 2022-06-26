@@ -101,6 +101,7 @@ public class Lane : MonoBehaviour
         }
 
         GameController.instance.moveRocks = true;
+        GameController.instance.moveGround = true;
     }
 
     private void Hit()

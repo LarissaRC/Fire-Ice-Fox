@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     public bool moveRocks = false;
     public int floorRockTotal;
     public int floorRocksCount = 0;
+    public bool moveGround = false;
 
     public static GameController instance;
 
