@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: Play
-  nextLevel: Lvl1
+  nextLevel: Help
 --- !u!61 &712968161
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonType: Play
-  nextLevel: Lvl1
+  nextLevel: Levels
 --- !u!1 &1719072054
 GameObject:
   m_ObjectHideFlags: 0
