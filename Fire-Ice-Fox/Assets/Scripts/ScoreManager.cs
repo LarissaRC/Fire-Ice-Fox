@@ -10,6 +10,8 @@ public class ScoreManager : MonoBehaviour
     public TMPro.TextMeshPro scoreText;
     static int comboScore;
 
+    public static int score = 0;
+
     void Start()
     {
         Instance = this;
@@ -18,12 +20,13 @@ public class ScoreManager : MonoBehaviour
     public static void Hit()
     {
         comboScore += 1;
+        score += 1;
         //Instance.hitSFX.Play();
     }
     public static void Miss()
     {
         comboScore = 0;
-        Instance.missSFX.Play();    
+        Instance.missSFX.Play();
     }
     private void Update()
     {

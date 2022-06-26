@@ -23,6 +23,11 @@ public class GameController : MonoBehaviour
     public int floorRockTotal;
     public int floorRocksCount = 0;
     public bool moveGround = false;
+    public bool moveFoxFriend = false;
+
+    public GameObject rightScreen; // Pra fazer desaparecer ao fim do jogo
+    public GameObject winScreen;
+    public GameObject lostScreen;
 
     public static GameController instance;
 
@@ -49,5 +54,41 @@ public class GameController : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+        print("Lost");
+    }
+
+    public void EndGameScreen()
+    {
+        if(ScoreManager.score == (floorRockTotal - 1))
+        {
+            Invoke("CloseRightScreen", 2.0f);
+            Invoke("LoadEndGameScreen", 3.0f);
+        }
+        else
+        {
+            Invoke("CloseRightScreen", 0.0f);
+            Invoke("LoadEndGameScreen", 2.0f);
+        }
+    }
+
+    public void CloseRightScreen()
+    {
+        rightScreen.SetActive(false);
+        if((floorRockTotal - 1) != ScoreManager.score)
+        {
+            ScoreManager.Miss();
+        }
+    }
+
+    public void LoadEndGameScreen()
+    {
+        if((floorRockTotal - 1) == ScoreManager.score)
+        {
+            winScreen.SetActive(true);
+        }
+        else
+        {
+            lostScreen.SetActive(true);
+        }
     }
 }

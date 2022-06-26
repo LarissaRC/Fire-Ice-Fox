@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloorRock : MonoBehaviour
+public class FriendFox : MonoBehaviour
 {
     public float t;
     private float verticalMove = 2.0f;
@@ -12,7 +12,7 @@ public class FloorRock : MonoBehaviour
     void Update()
     {
 
-        if(GameController.instance.moveRocks)
+        if(GameController.instance.moveFoxFriend)
         {
             switch(GameController.instance.keyDirection)
             {
@@ -38,19 +38,8 @@ public class FloorRock : MonoBehaviour
                 break;
             }
             transform.position = Vector2.Lerp(transform.position, new Vector3(transform.position.x - horizontalMove, transform.position.y + verticalMove, transform.position.z), t);
-            GameController.instance.floorRocksCount += 1;
-
-            if(GameController.instance.floorRocksCount == GameController.instance.floorRockTotal)
-            {
-                GameController.instance.moveRocks = false;
-                GameController.instance.floorRocksCount = 0;
-
-                // Verificar se ele já pulou sobre todas as rochas
-                if(ScoreManager.score == (GameController.instance.floorRockTotal - 1))
-                {
-                    GameController.instance.EndGameScreen();
-                }
-            }
+            
+            GameController.instance.moveFoxFriend = false;
         }
         
     }

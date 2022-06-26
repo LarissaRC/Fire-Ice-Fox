@@ -66,8 +66,8 @@ public class Lane : MonoBehaviour
             }
             if (timeStamp + marginOfError <= audioTime)
             {
-                Miss();
-                print($"Missed {inputIndex} note");
+                //Miss();
+                GameController.instance.EndGameScreen();
                 inputIndex++;
             }
         }       
@@ -102,6 +102,7 @@ public class Lane : MonoBehaviour
 
         GameController.instance.moveRocks = true;
         GameController.instance.moveGround = true;
+        GameController.instance.moveFoxFriend = true;
     }
 
     private void Hit()
