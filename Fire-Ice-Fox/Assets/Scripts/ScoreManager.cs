@@ -21,6 +21,7 @@ public class ScoreManager : MonoBehaviour
     {
         comboScore += 1;
         score += 1;
+        print(score);
         //Instance.hitSFX.Play();
     }
     public static void Miss()

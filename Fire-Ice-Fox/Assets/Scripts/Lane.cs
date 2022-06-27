@@ -48,20 +48,15 @@ public class Lane : MonoBehaviour
             double marginOfError = SongManager.Instance.marginOfError;
             double audioTime = SongManager.GetAudioSourceTime() - (SongManager.Instance.inputDelayInMilliseconds / 1000.0);
 
-            if (Input.GetKeyDown(input) || Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(input) || Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.R))
             {
                 if (Math.Abs(audioTime - timeStamp) < marginOfError)
                 {
                     Hit();
                     FoxJump(input);
 
-                    print($"Hit on {inputIndex} note");
                     Destroy(notes[inputIndex].gameObject);
                     inputIndex++;
-                }
-                else
-                {
-                    print($"Hit inaccurate on {inputIndex} note with {Math.Abs(audioTime - timeStamp)} delay");
                 }
             }
             if (timeStamp + marginOfError <= audioTime)
