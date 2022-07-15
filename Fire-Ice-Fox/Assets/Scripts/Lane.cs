@@ -61,7 +61,7 @@ public class Lane : MonoBehaviour
             }
             if (timeStamp + marginOfError <= audioTime)
             {
-                //Miss();
+                Miss();
                 GameController.instance.EndGameScreen();
                 inputIndex++;
             }
